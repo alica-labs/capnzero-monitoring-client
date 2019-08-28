@@ -1,0 +1,6 @@
+[submodule "submodules/capnzero-monitoring"]
+	path = submodules/capnzero-monitoring
+	url = https://github.com/dasys-lab/capnzero-monitoring.git
+[submodule "submodules/JNAerator"]
+	path = submodules/JNAerator
+	url = https://github.com/nativelibs4java/JNAerator.git
