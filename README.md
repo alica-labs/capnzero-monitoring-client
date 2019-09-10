@@ -1,7 +1,7 @@
 # Capnzero Monitoring Java Binding
 
 ## Installation
-1. In project root run "git submodule update --init"
+1. In project root run "git submodule update --init --recursive"
 2. In Capnzero lib 
   - comment the catkin-stuff out
   - set the c++ standard to 14
