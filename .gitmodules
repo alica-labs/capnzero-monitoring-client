@@ -1,0 +1,3 @@
+[submodule "submodules/capnzero-monitoring"]
+	path = submodules/capnzero-monitoring
+	url = git@github.com:dasys-lab/capnzero-monitoring.git
