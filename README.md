@@ -1,17 +1,16 @@
 # Capnzero Monitoring Java Binding
 
+A java client library for the capnzero-monitoring library.
+
 ## Requirements
 
-* CMake
-* Make
-* Java (openjdk 8, version 12 causes problems at the build of JNAErator)
+* OpenJDK12
 * Maven
 
-## Installation
+## Build
 
-1. In Capnzero lib set the C++ standard to 14
-2. Change to the scripts folder and run the **build_dependencies** script (it might take a while)
+Run the follwowing command (or use the lifecycle methods in  your IDE):
 
-## Generation
+    mvn clean install
 
-Change to the scripts folder and invoke the **generate_java_binding** script.
+The jar file can then be found in the target folder.
