@@ -24,3 +24,6 @@ hs_err_pid*
 
 splitParsing.firstFailure.errors.txt
 splitParsing.firstFailure.source.txt
+
+.project
+.vscode
