@@ -1,29 +1,30 @@
 package de.uniks.vs.capnzero.monitoring;
 
 import de.uniks.vs.capnzero.monitoring.event.Event;
-import de.uniks.vs.capnzero.monitoring.proxy.EventProxy;
+import de.uniks.vs.capnzero.monitoring.proxy.DebugEventProxy;
+import de.uniks.vs.capnzero.monitoring.handler.DebugEventHandler;
 
 public class MonitorClient {
 
-  private EventProxy eventProxy;
+  private DebugEventProxy eventProxy;
+  private boolean running;
 
-  public MonitorClient(EventProxy proxy) {
+  public MonitorClient(DebugEventProxy proxy) {
     this.eventProxy = proxy;
+    this.running = false;
   }
 
   public void start() {
     this.eventProxy.startListening();
+    this.running = true;
   }
 
   public void stop() {
     this.eventProxy.stopListening();
+    this.running = false;
   }
 
-  public boolean hasEvent() {
-    return this.eventProxy.hasEvent();
-  }
-
-  public Event nextEvent() {
-    return this.eventProxy.nextEvent();
+  public boolean isRunning() {
+    return running;
   }
 }
