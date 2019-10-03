@@ -2,8 +2,10 @@ package de.uniks.vs.capnzero.monitoring.proxy;
 
 import de.unikassel.vs.pdDebug.Protocol;
 import de.unikassel.vs.pdDebug.Subscriber;
+import de.uniks.vs.capnzero.monitoring.EventParser;
+import de.uniks.vs.capnzero.monitoring.InvalidEventException;
 import de.uniks.vs.capnzero.monitoring.config.DebugConfiguration;
-import de.uniks.vs.capnzero.monitoring.event.Event;
+import de.uniks.vs.capnzero.monitoring.event.DebugEvent;
 import de.uniks.vs.capnzero.monitoring.handler.DebugEventHandler;
 
 public class CapnzeroEventProxy {
@@ -24,11 +26,16 @@ public class CapnzeroEventProxy {
     eventThread = new Thread(() -> {
       while (true) {
         String message = subscriber.getMessage();
-        if (message.isEmpty()) {
+
+        try
+        {
+          DebugEvent event = eventParser.parse(message);
+          eventHandler.handleDebugEvent(event);
+        } catch( InvalidEventException e )
+        {
+          System.out.println(e.getMessage());
           continue;
         }
-        Event event = eventParser.parse(message);
-        eventHandler.handleDebugEvent(event);
       }
     });
   }

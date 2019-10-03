@@ -6,7 +6,6 @@ import de.uniks.vs.capnzero.monitoring.config.DebugConfiguration;
 import de.uniks.vs.capnzero.monitoring.handler.DebugEventHandler;
 import de.uniks.vs.capnzero.monitoring.handler.PrintDebugEventHandler;
 import de.uniks.vs.capnzero.monitoring.proxy.CapnzeroEventProxy;
-import de.uniks.vs.capnzero.monitoring.proxy.EventParser;
 
 public class MonitorClientTest {
   public MonitorClientTest() {

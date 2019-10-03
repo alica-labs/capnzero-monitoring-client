@@ -1,7 +1,7 @@
 package de.uniks.vs.capnzero.monitoring.handler;
 
-import de.uniks.vs.capnzero.monitoring.event.Event;
+import de.uniks.vs.capnzero.monitoring.event.DebugEvent;
 
 public interface DebugEventHandler {
-  void handleDebugEvent(Event event);
+  void handleDebugEvent( DebugEvent event);
 }
