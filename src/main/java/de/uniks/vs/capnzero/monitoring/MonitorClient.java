@@ -1,13 +1,13 @@
 package de.uniks.vs.capnzero.monitoring;
 
-import de.uniks.vs.capnzero.monitoring.proxy.DummyEventProxy;
+import de.uniks.vs.capnzero.monitoring.proxy.CapnzeroEventProxy;
 
 public class MonitorClient {
 
-  private DummyEventProxy eventProxy;
+  private CapnzeroEventProxy eventProxy;
   private boolean running;
 
-  public MonitorClient(DummyEventProxy proxy) {
+  public MonitorClient(CapnzeroEventProxy proxy) {
     this.eventProxy = proxy;
     this.running = false;
   }
