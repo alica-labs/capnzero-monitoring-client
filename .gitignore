@@ -30,3 +30,8 @@ target
 .vscode
 .classpath
 .settings
+.factorypath
+
+# intellij stuff
+.idea/*
+*.iml

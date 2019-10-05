@@ -1,0 +1,3 @@
+[submodule "capnzero4j"]
+	path = capnzero4j
+	url = git@github.com:dasys-lab/capnzero4j.git
