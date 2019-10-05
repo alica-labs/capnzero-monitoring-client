@@ -31,3 +31,7 @@ target
 .classpath
 .settings
 .factorypath
+
+# intellij stuff
+.idea/*
+*.iml
