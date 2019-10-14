@@ -27,4 +27,10 @@ package de.uniks.vs.capnzero.monitoring.event;
   {
     return message;
   }
+
+  @Override
+  public String toString()
+  {
+    return String.format("{\"type\": \"%s\", \"topic\": \"%s\", \"message\": \"%s\"}", type, topic, message);
+  }
 }

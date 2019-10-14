@@ -20,4 +20,10 @@ public class TopicEvent implements DebugEvent
   {
     return topic;
   }
+
+  @Override
+  public String toString()
+  {
+    return String.format("{\"type\": \"%s\", \"topic\": \"%s\"}", type, topic);
+  }
 }

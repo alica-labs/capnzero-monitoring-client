@@ -20,4 +20,10 @@ public class ReceiveEvent implements DebugEvent
   {
     return message;
   }
+
+  @Override
+  public String toString()
+  {
+    return String.format("{\"type\": \"%s\", \"message\": \"%s\"}", type, message);
+  }
 }

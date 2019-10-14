@@ -20,4 +20,10 @@ public class AddressEvent implements DebugEvent
   {
     return address;
   }
+
+  @Override
+  public String toString()
+  {
+    return String.format("{\"type\": \"%s\", \"address\": \"%s\"}", type, address);
+  }
 }

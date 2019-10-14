@@ -13,4 +13,10 @@ public class SubscribeEvent implements DebugEvent
   {
     return type;
   }
+
+  @Override
+  public String toString()
+  {
+    return String.format("{ \"type\": \"%s\" }", type);
+  }
 }

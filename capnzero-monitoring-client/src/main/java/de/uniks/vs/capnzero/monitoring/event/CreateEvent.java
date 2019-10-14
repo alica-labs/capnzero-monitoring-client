@@ -1,5 +1,7 @@
 package de.uniks.vs.capnzero.monitoring.event;
 
+import de.unikassel.vs.pdDebug.Protocol;
+
 public class CreateEvent implements DebugEvent
 {
 
@@ -15,5 +17,11 @@ public class CreateEvent implements DebugEvent
   public int getProtocol()
   {
     return protocol;
+  }
+
+  @Override
+  public String toString()
+  {
+    return String.format("{\"type\": \"%s\", \"protocol\": \"%s\"}", type, "" + protocol);
   }
 }
