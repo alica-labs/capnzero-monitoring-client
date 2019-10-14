@@ -2,6 +2,7 @@ package de.uniks.vs.capnzero.monitoring;
 
 import de.uniks.vs.capnzero.monitoring.event.DebugEvent;
 import de.uniks.vs.capnzero.monitoring.event.factory.*;
+import de.uniks.vs.capnzero.monitoring.exception.InvalidEventException;
 import org.yaml.snakeyaml.Yaml;
 
 import java.util.HashMap;

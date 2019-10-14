@@ -3,7 +3,7 @@ package de.uniks.vs.capnzero.monitoring.proxy;
 import de.unikassel.vs.pdDebug.Protocol;
 import de.unikassel.vs.pdDebug.Subscriber;
 import de.uniks.vs.capnzero.monitoring.EventParser;
-import de.uniks.vs.capnzero.monitoring.InvalidEventException;
+import de.uniks.vs.capnzero.monitoring.exception.InvalidEventException;
 import de.uniks.vs.capnzero.monitoring.config.DebugConfiguration;
 import de.uniks.vs.capnzero.monitoring.event.DebugEvent;
 import de.uniks.vs.capnzero.monitoring.handler.DebugEventHandler;
@@ -41,14 +41,10 @@ public class CapnzeroEventProxy {
   }
 
   public void startListening() {
-    System.out.println("Start listening on dummy");
-
     eventThread.start();
   }
 
   public void stopListening() {
-    System.out.println("Stop listening on dummy");
-
     eventThread.interrupt();
   }
 }
