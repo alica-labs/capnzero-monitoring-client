@@ -9,10 +9,10 @@ import de.uniks.vs.capnzero.monitoring.event.DebugEvent;
 import de.uniks.vs.capnzero.monitoring.handler.DebugEventHandler;
 
 public class CapnzeroEventProxy {
+  private boolean running;
   private DebugEventHandler eventHandler;
   private Subscriber subscriber;
   private DebugConfiguration configuration;
-  private Thread eventThread;
   private EventParser eventParser;
 
   public CapnzeroEventProxy(DebugEventHandler handler, EventParser parser, DebugConfiguration config) {
@@ -20,11 +20,16 @@ public class CapnzeroEventProxy {
     this.eventParser = parser;
     this.configuration = config;
     this.subscriber = new Subscriber();
+    this.running = false;
     subscriber.setGroupName(configuration.getTopic());
     subscriber.subscribe(Protocol.UDP, configuration.getAddress());
+  }
 
-    eventThread = new Thread(() -> {
-      while (true) {
+  public void startListening() {
+    this.running = true;
+
+    Thread eventThread = new Thread(() -> {
+      while (this.running) {
         String message = subscriber.getMessage();
 
         try
@@ -33,18 +38,16 @@ public class CapnzeroEventProxy {
           eventHandler.handleDebugEvent(event);
         } catch( InvalidEventException e )
         {
-          System.out.println(e.getMessage());
+          System.err.println(e.getMessage());
           continue;
         }
       }
     });
-  }
 
-  public void startListening() {
     eventThread.start();
   }
 
   public void stopListening() {
-    eventThread.interrupt();
+    running = false;
   }
 }
