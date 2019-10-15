@@ -1,11 +1,21 @@
 package de.uniks.vs.capnzero.monitoring;
 
+import de.uniks.vs.capnzero.monitoring.config.DebugConfiguration;
+import de.uniks.vs.capnzero.monitoring.handler.DebugEventHandler;
 import de.uniks.vs.capnzero.monitoring.proxy.CapnzeroEventProxy;
 
 public class MonitorClient {
 
   private CapnzeroEventProxy eventProxy;
   private boolean running;
+
+  public MonitorClient(DebugEventHandler handler)
+  {
+    EventParser parser = new YamlEventParser();
+    DebugConfiguration config = new DebugConfiguration();
+    this.eventProxy = new CapnzeroEventProxy(handler, parser, config);
+    this.running = false;
+  }
 
   public MonitorClient(CapnzeroEventProxy proxy) {
     this.eventProxy = proxy;

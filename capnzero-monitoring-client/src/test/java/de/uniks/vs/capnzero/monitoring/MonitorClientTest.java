@@ -14,11 +14,7 @@ public class MonitorClientTest {
   @Test
   public void testMonitorClientWithCapnzero() throws InterruptedException {
     DebugEventHandler handler = new PrintDebugEventHandler();
-    EventParser parser = new YamlEventParser();
-    DebugConfiguration config = new DebugConfiguration();
-    CapnzeroEventProxy proxy = new CapnzeroEventProxy(handler, parser, config);
-
-    MonitorClient client = new MonitorClient(proxy);
+    MonitorClient client = new MonitorClient(handler);
 
     client.start();
 
