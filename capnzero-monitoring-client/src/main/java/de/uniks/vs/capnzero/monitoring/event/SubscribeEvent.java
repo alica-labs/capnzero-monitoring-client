@@ -18,6 +18,9 @@ public class SubscribeEvent extends DebugEvent
   @Override
   public String toString()
   {
-    return String.format("{\"id\":\"%s\", \"type\": \"%s\" }", id, type);
+    return String.format("{\n"
+                         + "  \"id\":\"%s\",\n"
+                         + "  \"type\": \"%s\"\n"
+                         + "}", id, type);
   }
 }

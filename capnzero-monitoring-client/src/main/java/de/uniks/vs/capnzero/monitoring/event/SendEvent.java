@@ -26,7 +26,11 @@ package de.uniks.vs.capnzero.monitoring.event;
   @Override
   public String toString()
   {
-    return String.format("{\"id\":\"%s\", \"type\": \"%s\", \"topic\": \"%s\", \"message\": \"%s\"}", id, type, topic,
-      message);
+    return String.format("{\n"
+                         + "  \"id\":\"%s\",\n"
+                         + "  \"type\": \"%s\",\n"
+                         + "  \"topic\": \"%s\",\n"
+                         + "  \"message\": \"%s\"\n"
+                         + "}", id, type, topic, message);
   }
 }

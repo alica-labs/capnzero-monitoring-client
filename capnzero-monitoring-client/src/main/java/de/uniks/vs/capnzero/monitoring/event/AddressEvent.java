@@ -24,6 +24,10 @@ public class AddressEvent extends DebugEvent
   @Override
   public String toString()
   {
-    return String.format("{\"id\":\"%s\", \"type\": \"%s\", \"address\": \"%s\"}", id, type, address);
+    return String.format("{\n"
+                         + "  \"id\":\"%s\",\n"
+                         + "  \"type\": \"%s\",\n"
+                         + "  \"address\": \"%s\"\n"
+                         + "}", id, type, address);
   }
 }

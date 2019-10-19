@@ -25,6 +25,10 @@ public class TopicEvent extends DebugEvent
   @Override
   public String toString()
   {
-    return String.format("{\"id\":\"%s\", \"type\": \"%s\", \"topic\": \"%s\"}", id, type, topic);
+    return String.format("{\n"
+                         + "  \"id\":\"%s\",\n"
+                         + "  \"type\": \"%s\",\n"
+                         + "  \"topic\": \"%s\"\n"
+                         + "}", id, type, topic);
   }
 }

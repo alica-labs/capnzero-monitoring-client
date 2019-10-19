@@ -19,6 +19,10 @@ public class CreateEvent extends DebugEvent
   @Override
   public String toString()
   {
-    return String.format("{\"id\":\"%s\", \"type\": \"%s\", \"protocol\": \"%s\"}", id, type, protocol);
+    return String.format("{\n"
+                         + "  \"id\":\"%s\",\n"
+                         + "  \"type\": \"%s\",\n"
+                         +    "\"protocol\": \"%s\"\n"
+                         + "}", id, type, protocol);
   }
 }

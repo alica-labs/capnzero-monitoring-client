@@ -24,6 +24,10 @@ public class ReceiveEvent extends DebugEvent
   @Override
   public String toString()
   {
-    return String.format("{\"id\":\"%s\", \"type\": \"%s\", \"message\": \"%s\"}", id, type, message);
+    return String.format("{\n"
+                         + "  \"id\":\"%s\",\n"
+                         + "  \"type\": \"%s\",\n"
+                         + "  \"message\": \"%s\"\n"
+                         + "}", id, type, message);
   }
 }
