@@ -1,12 +1,12 @@
 package de.uniks.vs.capnzero.monitoring.event;
 
-public class ReceiveEvent implements DebugEvent
+public class ReceiveEvent extends DebugEvent
 {
-  private final String type;
   private final String message;
 
-  public ReceiveEvent(String message)
+  public ReceiveEvent(String id, String message)
   {
+    this.id = id;
     this.type = "receive";
     this.message = message;
   }
@@ -24,6 +24,6 @@ public class ReceiveEvent implements DebugEvent
   @Override
   public String toString()
   {
-    return String.format("{\"type\": \"%s\", \"message\": \"%s\"}", type, message);
+    return String.format("{\"id\":\"%s\", \"type\": \"%s\", \"message\": \"%s\"}", id, type, message);
   }
 }

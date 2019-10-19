@@ -1,12 +1,12 @@
 package de.uniks.vs.capnzero.monitoring.event;
 
-public class AddressEvent implements DebugEvent
+public class AddressEvent extends DebugEvent
 {
-  private final String address;
-  private final String type;
+  private String address;
 
-  public AddressEvent( String address )
+  public AddressEvent( String id, String address )
   {
+    this.id = id;
     this.type = "address";
     this.address = address;
   }
@@ -24,6 +24,6 @@ public class AddressEvent implements DebugEvent
   @Override
   public String toString()
   {
-    return String.format("{\"type\": \"%s\", \"address\": \"%s\"}", type, address);
+    return String.format("{\"id\":\"%s\", \"type\": \"%s\", \"address\": \"%s\"}", id, type, address);
   }
 }

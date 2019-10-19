@@ -4,7 +4,7 @@ import de.uniks.vs.capnzero.monitoring.event.SubscribeEvent;
 
 import java.util.Map;
 
-public class SubscribeEventFactory implements DebugEventFactory
+public class SubscribeEventFactory extends DebugEventFactory
 {
   public SubscribeEventFactory()
   {}
@@ -12,6 +12,7 @@ public class SubscribeEventFactory implements DebugEventFactory
   @Override
   public SubscribeEvent buildFromString( Map<String, Object> serializedEvent )
   {
-    return new SubscribeEvent();
+    String id = DebugEventFactory.parseId(serializedEvent.get("id"));
+    return new SubscribeEvent(id);
   }
 }

@@ -4,13 +4,15 @@ import de.uniks.vs.capnzero.monitoring.event.ReceiveEvent;
 
 import java.util.Map;
 
-public class ReceiveEventFactory implements DebugEventFactory
+public class ReceiveEventFactory extends DebugEventFactory
 {
   public ReceiveEventFactory(){}
 
   @Override
   public ReceiveEvent buildFromString( Map<String, Object> serializedEvent )
   {
-    return new ReceiveEvent((String) serializedEvent.get("message"));
+    String id = DebugEventFactory.parseId(serializedEvent.get("id"));
+    String message = (String) serializedEvent.get("message");
+    return new ReceiveEvent(id, message);
   }
 }

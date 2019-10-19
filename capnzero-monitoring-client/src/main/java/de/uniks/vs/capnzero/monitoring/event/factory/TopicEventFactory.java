@@ -1,10 +1,9 @@
 package de.uniks.vs.capnzero.monitoring.event.factory;
 
 import de.uniks.vs.capnzero.monitoring.event.TopicEvent;
-
 import java.util.Map;
 
-public class TopicEventFactory implements DebugEventFactory
+public class TopicEventFactory extends DebugEventFactory
 {
   public TopicEventFactory()
   {
@@ -13,6 +12,9 @@ public class TopicEventFactory implements DebugEventFactory
   @Override
   public TopicEvent buildFromString( Map<String, Object> serializedEvent )
   {
-    return new TopicEvent((String) serializedEvent.get("topic"));
+    String id = DebugEventFactory.parseId(serializedEvent.get("id"));
+
+    String topic = (String) serializedEvent.get("topic");
+    return new TopicEvent(id, topic);
   }
 }

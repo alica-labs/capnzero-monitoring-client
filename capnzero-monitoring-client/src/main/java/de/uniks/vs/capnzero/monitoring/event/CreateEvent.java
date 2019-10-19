@@ -1,20 +1,17 @@
 package de.uniks.vs.capnzero.monitoring.event;
 
-import de.unikassel.vs.pdDebug.Protocol;
-
-public class CreateEvent implements DebugEvent
+public class CreateEvent extends DebugEvent
 {
+  private String protocol;
 
-  private final int protocol;
-  private final String type;
-
-  public CreateEvent( int protocol )
+  public CreateEvent( String id, String protocol )
   {
+    this.id = id;
     this.type = "create";
     this.protocol = protocol;
   }
 
-  public int getProtocol()
+  public String getProtocol()
   {
     return protocol;
   }
@@ -22,6 +19,6 @@ public class CreateEvent implements DebugEvent
   @Override
   public String toString()
   {
-    return String.format("{\"type\": \"%s\", \"protocol\": \"%s\"}", type, "" + protocol);
+    return String.format("{\"id\":\"%s\", \"type\": \"%s\", \"protocol\": \"%s\"}", id, type, protocol);
   }
 }

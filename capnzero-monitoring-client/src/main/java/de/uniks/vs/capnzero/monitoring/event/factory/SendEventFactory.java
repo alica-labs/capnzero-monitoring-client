@@ -4,7 +4,7 @@ import de.uniks.vs.capnzero.monitoring.event.SendEvent;
 
 import java.util.Map;
 
-public class SendEventFactory implements DebugEventFactory
+public class SendEventFactory extends DebugEventFactory
 {
   public SendEventFactory()
   {
@@ -14,6 +14,10 @@ public class SendEventFactory implements DebugEventFactory
   @Override
   public SendEvent buildFromString( Map<String, Object> serializedEvent )
   {
-    return new SendEvent((String) serializedEvent.get("message"), (String) serializedEvent.get("topic"));
+    String id = DebugEventFactory.parseId(serializedEvent.get("id"));
+    String message = ( String ) serializedEvent.get("message");
+    String topic = ( String ) serializedEvent.get("topic");
+
+    return new SendEvent(id, message, topic);
   }
 }

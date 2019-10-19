@@ -1,11 +1,12 @@
 package de.uniks.vs.capnzero.monitoring.event;
 
-public class SubscribeEvent implements DebugEvent
+public class SubscribeEvent extends DebugEvent
 {
   private final String type;
 
-  public SubscribeEvent()
+  public SubscribeEvent(String id)
   {
+    this.id = id;
     this.type = "subscribe";
   }
 
@@ -17,6 +18,6 @@ public class SubscribeEvent implements DebugEvent
   @Override
   public String toString()
   {
-    return String.format("{ \"type\": \"%s\" }", type);
+    return String.format("{\"id\":\"%s\", \"type\": \"%s\" }", id, type);
   }
 }

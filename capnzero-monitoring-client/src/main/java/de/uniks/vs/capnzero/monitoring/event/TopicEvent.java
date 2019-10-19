@@ -1,12 +1,13 @@
 package de.uniks.vs.capnzero.monitoring.event;
 
-public class TopicEvent implements DebugEvent
+public class TopicEvent extends DebugEvent
 {
   private final String type;
   private final String topic;
 
-  public TopicEvent( String topic )
+  public TopicEvent( String id, String topic )
   {
+    this.id = id;
     this.type = "topic";
     this.topic = topic;
   }
@@ -24,6 +25,6 @@ public class TopicEvent implements DebugEvent
   @Override
   public String toString()
   {
-    return String.format("{\"type\": \"%s\", \"topic\": \"%s\"}", type, topic);
+    return String.format("{\"id\":\"%s\", \"type\": \"%s\", \"topic\": \"%s\"}", id, type, topic);
   }
 }
