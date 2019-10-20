@@ -16,8 +16,7 @@ public class SendEventFactory extends DebugEventFactory
   {
     String id = DebugEventFactory.parseId(serializedEvent.get("id"));
     String message = ( String ) serializedEvent.get("message");
-    String topic = ( String ) serializedEvent.get("topic");
 
-    return new SendEvent(id, message, topic);
+    return new SendEvent(id, message);
   }
 }

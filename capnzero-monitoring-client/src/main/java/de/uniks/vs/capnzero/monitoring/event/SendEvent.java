@@ -4,7 +4,7 @@ package de.uniks.vs.capnzero.monitoring.event;
 {
   private final String message;
 
-  public SendEvent( String id, String message, String topic)
+  public SendEvent( String id, String message)
   {
     this.id = id;
     this.type = "send";
