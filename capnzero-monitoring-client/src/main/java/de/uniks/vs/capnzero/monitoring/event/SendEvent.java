@@ -2,7 +2,6 @@ package de.uniks.vs.capnzero.monitoring.event;
 
  public class SendEvent extends DebugEvent
 {
-  private final String topic;
   private final String message;
 
   public SendEvent( String id, String message, String topic)
@@ -10,12 +9,6 @@ package de.uniks.vs.capnzero.monitoring.event;
     this.id = id;
     this.type = "send";
     this.message = message;
-    this.topic = topic;
-  }
-
-  public String getTopic()
-  {
-    return topic;
   }
 
   public String getMessage()
@@ -29,8 +22,7 @@ package de.uniks.vs.capnzero.monitoring.event;
     return String.format("{\n"
                          + "  \"id\":\"%s\",\n"
                          + "  \"type\": \"%s\",\n"
-                         + "  \"topic\": \"%s\",\n"
                          + "  \"message\": \"%s\"\n"
-                         + "}", id, type, topic, message);
+                         + "}", id, type, message);
   }
 }
