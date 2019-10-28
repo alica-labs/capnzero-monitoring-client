@@ -17,6 +17,7 @@ Initialize the submodule with
 
 ```shell
 git submodule update --init
+git checkout patch-sst
 ```
 
 Run the follwowing command
