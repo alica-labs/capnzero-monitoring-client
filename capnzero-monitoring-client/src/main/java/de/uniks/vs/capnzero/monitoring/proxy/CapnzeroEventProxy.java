@@ -27,13 +27,10 @@ public class CapnzeroEventProxy {
       while (true) {
         String message = subscriber.getMessage();
 
-        try
-        {
+        try {
           DebugEvent event = eventParser.parse(message);
           eventHandler.handleDebugEvent(event);
-        } catch( InvalidEventException e )
-        {
-          System.out.println(e.getMessage());
+        } catch (InvalidEventException e) {
           continue;
         }
       }
@@ -41,13 +38,13 @@ public class CapnzeroEventProxy {
   }
 
   public void startListening() {
-    System.out.println("Start listening on dummy");
+    System.out.println("Start listening for messages");
 
     eventThread.start();
   }
 
   public void stopListening() {
-    System.out.println("Stop listening on dummy");
+    System.out.println("Stop listening for messages");
 
     eventThread.interrupt();
   }
